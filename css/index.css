@@ -72,7 +72,7 @@
 .header-right .right:last-child{
 	border-right:none;
 	margin-left: 25px;
-	margin-right: 
+	/*margin-right: */
 }
 .shop{
 	width: 120px;
@@ -93,13 +93,13 @@
 	background: url('../img/shop.png') no-repeat center center; 
 }
 .shop:hover .che{
-	background: url('../img/2017-11-29_145407_03.png') no-repeat center center; */
+	background: url('../img/2017-11-29_145407_03.png') no-repeat center center;
 }
 .shop .zi{
 	font-size: 12px;
 	color: #b0b0b0 ;
 	float: left;
-	line-height: center;
+	line-height: 40px;
 }
 .shop:hover .zi{
 	color: #ff6700;
@@ -214,7 +214,6 @@
 .banner{
 	width: 1226px;
 	height: 460px;
-	background:pink;
 	margin: 0 auto; 
 	position: relative;
 	margin-bottom: 25px;
@@ -222,16 +221,18 @@
 .banner .img_box{
 	width: 100%;
 	height: 100%;
-	background: red;
 }
 .banner .img_box li{
 	width: 100%;
 	height: 100%;
-	background: green;
+	/*background: green;*/
 	position:absolute;
 	left: 0;
 	top: 0;
+	opacity: 0;
+	transition: all 1s;
 }
+
 .banner .img_box li a{
 	display: block;
 	width: 100%;
@@ -242,13 +243,18 @@
 	width: 100%;
 	height: 100%;
 }
+.banner li.active{
+	z-index: 1;
+	opacity: 1;
+}
 .banner .aside{
 	width: 234px;
 	height: 100%;
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: rgba(0, 0, 0, 0.6)
+	background: rgba(0, 0, 0, 0.4);
+    z-index:999;
 }
 .aside li{
 	width: 234px;
@@ -281,6 +287,7 @@
 	position: absolute;
 	right:29px ;
 	bottom: 20px;
+    z-index: 999;
 }
 
 .btn_box li{
@@ -291,6 +298,9 @@
 	border-radius: 50%;
 	float: left;
 	margin-right: 10px;
+}
+.btn_box li.active{
+	background: #7c7c81;
 }
 .btn_box li:hover{
 	background: #7c7c81;
@@ -311,6 +321,8 @@
 	margin-top: auto;
 	margin-bottom:auto;
 	position: absolute;
+    z-index: 999;
+	cursor: pointer;
 }
 .banner .banner_left:hover{
 	background: rgba(0, 0, 0, 0.6)
@@ -328,6 +340,8 @@
 	margin-top: auto;
 	margin-bottom:auto;
 	position: absolute;
+    z-index: 999;
+	cursor: pointer;
 }
 .banner .banner_right:hover{
 	background: rgba(0, 0, 0, 0.6)
@@ -472,7 +486,12 @@
 
 
 
-
+.mixin{
+	width: 1226px;
+	height:398px;
+	overflow: hidden;
+	margin:0 auto;
+}
 
 
 .danpin{
@@ -489,9 +508,10 @@
 }
 
 .danpin-bottom{
-	width: 100%;
+	width: 3000px;
 	height: 340px;
 	background: #ffffff;
+	transition: all 1s;
 }
 
 .danpin-bottom .kj{
@@ -516,6 +536,9 @@
 }
 .danpin-bottom .kj:nth-child(4){
 	border-top: 1px solid #e53935;
+}
+.danpin-bottom .kj:nth-child(5){
+	border-top: 1px solid #00c0a5;
 }
 .kj .liantu{
 	width: 160px;
@@ -560,7 +583,7 @@
 	float: right;
 	margin-top: 17px;
 }
-.danpin-top-hez-hez1{
+.danpin-top-hez-hez1,.danpin-top-hez-hez2{
 	width: 34px;
 	height: 22px;
 	background: #ffffff;
@@ -571,34 +594,27 @@
 	text-align: center; 
 	color: #e0e0e0;
 }
-.danpin-top-hez-hez1:hover{
-	color: #ff6700;
-}
 .danpin-top-hez-hez2{
-	width: 34px;
-	height: 22px;
-	background: #ffffff;
-	float: left;
-	border: 1px solid #e0e0e0;
-	font-size: 12px;
-	line-height: 22px;
-	text-align: center; 
-	color: #b0b0b0;
-	border-left: none;
+	border-left:none;
 }
-.danpin-top-hez-hez2:hover{
+.danpin-top-hez-hez2.active{
+	color: #8D8D8D;
+}
+.danpin-top-hez-hez1.active{
+	color: #8D8D8D;
+}
+.danpin-top-hez-hez2.active:hover{
 	color: #ff6700;
 }
-
-
-
+.danpin-top-hez-hez1.active:hover{
+	color: #ff6700;
+}
 /* 为你推荐开始  */
 .tuijian{
 	width: 1226px;
 	height: 398px;
 	background: pink;
-/* 	margin: 0 auto;
- */}
+}
 
 .tuijian-top{
 	width: 100%;
@@ -1321,7 +1337,7 @@
 .weixiu_bottom{
 	width: 100%;
 	height: 192px;
-	background: #;
+	/*background: #;*/
 }
 .weixiu_bottom .bazhu{
 	width: 100%;
