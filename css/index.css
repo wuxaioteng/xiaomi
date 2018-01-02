@@ -742,6 +742,20 @@
 	height: 614px;
 	background: #f5f5f5;
 	float: left;
+	overflow: hidden;
+}
+.bx1 .jinha{
+	 width: 992px;
+	 height: 3000px;
+ }
+.jinha .bx2{
+	width: 992px;
+	height: 614px;
+	display: none;
+	transition: all 1s;
+}
+.jinha .bx2.active{
+	display: block;
 }
 .bx1-sha .kuangj{
 	width: 234px;
@@ -754,6 +768,9 @@
 	position: relative;
 	overflow: hidden;
 }
+/*.bx1-sha .kuangj.active{*/
+
+/*}*/
 .bx1-sha .kuangj:hover{
 	transform: translateY(-5px);
     box-shadow: 0px 10px 10px 2px rgba(0, 0, 0, 0.2);
@@ -822,10 +839,15 @@
 .kuangj .tuk{
 	width: 180px;
 	height: 110px;
-	background: pink;
+	/*background: pink;*/
 	display: block;
 	margin:0 auto;
 	margin-top: 55px;
+}
+.tuk img{
+	width: 180px;
+	height: 110px;
+	display: block;
 }
 .kuangj .wenb{
 	font-size: 12px;
@@ -919,6 +941,10 @@
 	margin-right: 31px;
 	margin-top: 20px;
 
+}
+.kz1 .you.active{
+	color:#FF6700 ;
+	border-bottom: 1px solid #ff6700;
 }
 .kz1 .you:hover{
 	color: #ff6700;
@@ -1029,7 +1055,20 @@
 .neirong-bottom{
 	width: 100%;
 	height: 420px;
-	background:#f5f5f5; 
+	background:#f5f5f5;
+	display: flex;
+	/*justify-content: space-between;*/
+}
+.neirong-bottom .fate{
+	width: 310px;
+	height: 420px;
+	overflow: hidden;
+	position: relative;
+}
+.neirong-bottom .home{
+	width: 3000px;
+	height: 420px;
+	transition: all 1s;
 }
 .neirong-bottom .sikua1{
 	width: 296px;
@@ -1038,24 +1077,49 @@
 	float: left;
 	margin-right: 14px;
 	border-top: 1px solid #ffac13;
-	/* transition: all 1s; */
-	/* position: relative; */
 }
 .neirong-bottom .sikua1:last-child{
-	margin-right:0px;
+	/*margin-right:0px;*/
 	border-top: 1px solid #2196f3;
 }
-
-.neirong-bottom .sikua1:nth-child(2){	
-	border-top: 1px solid #83c44e;
+.fate .contents,.fate .contents1{
+	width: 20px;
+	height: 48px;
+	line-height: 48px;
+	opacity: 0;
+	background: #D2D2D2;
+	text-align: center;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;
 }
-.neirong-bottom .sikua1:nth-child(3){
-	border-top: 1px solid #e53935;
-	}
+.fate .contents{
+	left: 0px;
+}
+.fate .contents1{
+	right: 14px;
+}
+.fate:hover .contents{
+	opacity: 1;
+}
+.fate:hover .contents1{
+	opacity: 1;
+}
+.fate .contents:hover,.fate .contents1:hover{
+	opacity: 1;
+	background: #5A5A5A;
+}
+/*.neirong-bottom .sikua1:nth-child(2){	*/
+	/*border-top: 1px solid #83c44e;*/
+/*}*/
+/*.neirong-bottom .sikua1:nth-child(3){*/
+	/*border-top: 1px solid #e53935;*/
+	/*}*/
 .sikua1 .miui{
 	width: 300px;
 	height: 20px;
-/* 	background: blue; */
 }
 .miui .shujia{
 	font-size:16px; 
@@ -1107,23 +1171,26 @@
 .bote .hali{
 	width:170px; 
 	height: 150px;
-	background: pink;
 	display: block;
 	margin-top:30px; 
 	margin-left: 66px;
 }
-.sikua1 .diank{
+.fate .diank{
 	width: 300px;
 	height: 10px;
-/* 	background: yellow; */
 	margin: 0 auto;
 	margin-top: 35px;
+	position: absolute;
+	left: -3px;
+	bottom: 21px;
 }
 .diank .diandian{
 	width: 100px;
 	height: 10px;
 	margin: 0 auto;
-/* 	background: blue; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .diank .diandian li{
@@ -1132,14 +1199,14 @@
 	background: #b0b0b0;
 	border-radius: 50%;
 	float: left;
-	margin-right: 26px;
+	border: 2px solid rgba(0,0,0,0);
+}
+.diank .diandian li.active{
+	border: 2px solid #ff6700;
+	background: #ffffff;
 }
 .diank .diandian li:hover{
 	background: #ff6700;
-}
-.diank .diandian li:first-child{
-	border: 2px solid #ff6700;
-	background: #ffffff;
 }
 /* 内容结束  */
 /*  视屏开始 */

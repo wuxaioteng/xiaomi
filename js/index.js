@@ -1,4 +1,5 @@
 {
+    //轮播图
 let pager=document.querySelectorAll(".img_box li");
 let act=document.querySelectorAll(".btn_box li");
 let bannerContainer=document.querySelector(".banner");
@@ -45,24 +46,33 @@ let nextbtn=document.querySelector(".banner_right")
     bannerContainer.onmouseout=function () {
         st = setInterval(bannerFn, 1000);
     }
-// let flag=true;
+let flag=true;
 nextbtn.onclick=function () {
-    // if(flag){
-        // flag=false;
+    if(flag){
+        flag=false;
         bannerFn();
-    // }
+    }
 }
 prebtn.onclick=function () {
-    bannerFn("l");
+    if(flag) {
+        flag = false;
+        bannerFn("l");
+    }
 }
+
 // addEventListener()添加事件的方法，js中有一些事件是不能用on添加的
 // pager.forEach(function (ele,index) {
-//     ele.addEventListener("transitionend",function (){
+//     ele.addEventListener("transitionend",
+//         function(){
 //         flag=true;
 //     })
 // })
-// }
+
+
+
+
 }
+//明星单品
 {
     let prev=document.querySelector(".danpin-top-hez-hez1");
     let nest=document.querySelector(".danpin-top-hez-hez2");
@@ -97,5 +107,82 @@ prebtn.onclick=function () {
     }
     inner.onmouseout=function () {
         st = setInterval(starFn, 3000);
+    }
+}
+
+
+
+//家电
+{
+    // let goods=document.querySelectorAll("")
+    // goods.forEach(function (ele) {
+    //     tab(ele);
+    // });
+    //封装
+    // function tab(context) {
+    // tab(goods[0]);
+    let btn=document.querySelectorAll(".kz1 .you");
+    let contents=document.querySelectorAll(".jinha .bx2");
+    btn.forEach(function (ele,index) {
+        ele.onclick=function () {
+            for(let i=0;i<btn.length;i++){
+                btn[i].classList.remove("active");
+                contents[i].classList.remove("active");
+            }
+            this.classList.add("active");
+            contents[index].classList.add("active");
+        }
+    });
+    // }
+}
+
+
+
+//内容
+{
+    var lists=document.querySelectorAll(".neirong-bottom .fate");
+    lists.forEach(function(ele){
+        content(ele);
+    });
+    function content(context) {
+        let inner=context.querySelector(".neirong-bottom .home")
+        let prev=context.querySelector(".contents");
+        let next=context.querySelector(".contents1");
+        let items=context.querySelectorAll(".home1 .sikua1");
+        let pagers=context.querySelectorAll(".a1 .diandian li");
+        let max=items.length;
+        let n=0;
+        next.onclick=function () {
+            n++;
+            if(n>=max){
+                n=max;
+                return;
+            }
+            inner.style.marginLeft=-n*310+"px";
+            changePager(n);
+        }
+        prev.onclick=function () {
+            n--;
+            if(n<0){
+                n=0;
+                return;
+            }
+            inner.style.marginLeft=-n*310+"px";
+            changePager(n);
+        }
+        pagers.forEach(function (ele,index) {
+            ele.onclick=function () {
+                n=index;
+                changePager(index);
+            };
+        });
+
+        function changePager(n) {
+            for(let i=0;i<pagers.length;i++){
+                pagers[i].classList.remove("active");
+            }
+            pagers[n].classList.add("active");
+            inner.style.marginLeft=-n*310+"px";
+        }
     }
 }
