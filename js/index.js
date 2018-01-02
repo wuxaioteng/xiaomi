@@ -61,12 +61,12 @@ prebtn.onclick=function () {
 }
 
 // addEventListener()添加事件的方法，js中有一些事件是不能用on添加的
-// pager.forEach(function (ele,index) {
-//     ele.addEventListener("transitionend",
-//         function(){
-//         flag=true;
-//     })
-// })
+pager.forEach(function (ele,index) {
+    ele.addEventListener("transitionend",
+        function(){
+        flag=true;
+    })
+})
 
 
 
