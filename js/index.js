@@ -69,9 +69,10 @@ pager.forEach(function (ele,index) {
 })
 
 
-
-
 }
+
+
+
 //明星单品
 {
     let prev=document.querySelector(".danpin-top-hez-hez1");
@@ -142,7 +143,7 @@ pager.forEach(function (ele,index) {
 {
     var lists=document.querySelectorAll(".neirong-bottom .fate");
     lists.forEach(function(ele){
-        content(ele);
+        content(ele);//个数
     });
     function content(context) {
         let inner=context.querySelector(".neirong-bottom .home")
@@ -186,3 +187,110 @@ pager.forEach(function (ele,index) {
         }
     }
 }
+
+
+
+{
+    let su=document.querySelectorAll(" .zhong .shiwen");
+    let qu=document.querySelectorAll(".suv");
+    su.forEach(function (ele,index) {
+        ele.onmouseover=function () {
+            for(let i=0;i<qu.length;i++){
+                qu[i].style.display="none";
+            }
+            qu[index].style.display="block";
+            qu[index].classList.add("fadeIn");
+        }
+        ele.onmouseout=function () {
+            qu[index].style.display="none";
+            qu[index].classList.remove("fadeIn");
+        }
+
+    })
+    qu.forEach(function (ele,index) {
+        ele.onmouseover=function () {
+                qu[index].style.display="block";
+            }
+            ele.onmouseout=function () {
+                qu[index].style.display="none";
+            }
+    })
+}
+
+
+
+
+
+
+// 搜索框
+{
+    {
+        let suv= document.querySelector(".you input");
+        let sp=document.querySelectorAll(".you .max");
+        console.log(sp)
+        let qi=document.querySelector(".you .shou2");
+
+        suv.onfocus=suv.onclick=function () {
+            suv.style.border="1px solid #ff9900";
+            qi.style.border="1px solid #ff9900";
+            suv.style.borderRight="none"
+            sp.forEach(function (ele) {
+                ele.style.display="none";
+            })
+        }
+        suv.onblur=function () {
+            suv.style.border="1px solid #e0e0e0";
+            qi.style.border="1px solid #e0e0e0";
+            sp.forEach(function (ele) {
+                ele.style.display="block";
+            })
+        }
+
+    }
+
+
+    {
+        let sq=document.querySelectorAll(".aside li");
+        let sv=document.querySelectorAll(".jiu_s");
+        sq.forEach(function(ele,index){
+            ele.onmouseover=function(){
+                for(let i=0;i<sv.length;i++){
+                    sv[i].style.display="none"
+                }
+                sv[index].style.display="block";
+            }
+            ele.onmouseleave=function(){
+                sv[index].style.display="none";
+            }
+        });
+    }
+}
+
+
+
+
+
+
+
+// {
+
+    //1.$("").removeClass("active");
+   // $(this).addClass("active")
+   //$(".btn_box li").removeClass("active").filter(this).addClass("active");
+    //3.$(this).addClass("active").siblings().removeClass("active");
+    //4.$(this).addClass("active").sibling(".actve").removeClass("active");
+  // var index=$(this).index();
+  // var btns=$
+  // $(".pager").filter(".active").end().
+  //
+  //
+  //   var n=0;
+  //   var st=setInterval(function () {
+  //       n++;
+  //       if(n===btns.length)){
+  //           n=0;
+  //       }
+  //       btn.filter("active").removeClass("active").end().eq(n).addClass("active");
+  //   imgs.filter(".active").removeClass("active").end().eq(n)
+  //   })
+// }
